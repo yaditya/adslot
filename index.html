@@ -59,9 +59,9 @@
 							 	<a href="#" class="button postfix" ng-click="search(searchTerm)">Go</a>
 							</div>
 					  	</div>
-						<section class="row results" ng-if="sites">
+						<section class="row results">
 							<div class="columns large-12">
-								<div ng-hide="results.length">
+								<div ng-show="noResult">
 									We currently don't have any results for your search, try another.
 								</div>
 								<article class="" ng-repeat="site in results" ng-cloak>
@@ -74,10 +74,6 @@
 				</div>
 				<div class="columns large-2">&nbsp;</div>
 			</div>
-		</div>
-
-
-
 		</div>
 
 		<footer>

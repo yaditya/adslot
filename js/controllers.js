@@ -9,6 +9,7 @@ searchApp.controller('SearchSiteCtrl', function($scope, $http, $filter) {
 
 	$http.get('data/site.json').success(function(sites) {
 		$scope.sites = sites;
+		$scope.noResult = false;
 		$scope.newCategories = [];
 
 		angular.forEach(sites, function(site, index) {
@@ -25,7 +26,7 @@ searchApp.controller('SearchSiteCtrl', function($scope, $http, $filter) {
 	$scope.search = function (keywords) {
 		var sites = $scope.sites;
 		$scope.results = $filter('filter')(sites, keywords);
-
+		$scope.noResult = ($scope.results.length) ? false : true;
 	}
 
 	/**
