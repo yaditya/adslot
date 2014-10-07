@@ -3,7 +3,6 @@
 
 
 ## Prerequisites
----
 
 #### Node.js
 
@@ -23,7 +22,7 @@ Install npm package: http-server
 For more installation information, please visit [http-server-download]
 
 ## Run the app
----
+
 ###Unzip the exercise package
 Assuming the destination location is:
 
