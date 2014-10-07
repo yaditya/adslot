@@ -1,0 +1,69 @@
+header {
+	margin-top: 20px;
+}
+
+.main {
+	background-color: #55c8e6;
+	min-height: 600px;
+}
+
+	.main.search-active {
+		background-color: #f2f2f2;
+	}
+
+#search {
+	margin-top: 40px;
+}
+
+.inline-list>li {
+	margin-left: 5px;
+}
+
+.icons ul li {
+	background-image: url(../images/allicons.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.cart {
+	background-position: 0 0;
+	height: 26px;
+	width: 148px;
+}
+
+.currency {
+	background-position: -155px 0;
+	height: 26px;
+	width: 75px;
+}
+
+.account {
+	background-position: -230px 0;
+	height: 26px;
+	width: 58px;
+}
+
+.icons ul li.close {
+	background-image: none;
+}
+
+.search {
+	background-position: 100% 100%;
+	height: 26px;
+	width: 30px;
+}
+
+footer {
+	background-color: #2d2d2e;
+	padding-top: 15px;
+}
+	.links {
+		display: inline-block;
+	}
+
+		.links li a {
+			color: #757575;
+		}
+	hr {
+		border: solid 1px #58585a;
+	}

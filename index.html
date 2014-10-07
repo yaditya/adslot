@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7 no-js" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8 no-js" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9 no-js" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="en" ng-app="searchApp"><!--<![endif]-->
+
+	<head>
+
+		<meta charset="utf-8" />
+		<title>Frontend Exercise Adslot</title>
+		<meta name="HandheldFriendly" content="True" />
+		<meta name="MobileOptimized" content="320" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js"></script>
+		<!--[if lt IE 9]>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+		<script src="http://s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>
+		<script src="http://html5base.googlecode.com/svn-history/r38/trunk/js/selectivizr-1.0.3b.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.3.3/css/foundation.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+	</head>
+
+	<body ng-controller="SearchSiteCtrl">
+		<header>
+			<div class="row">
+				<div class="columns large-2">&nbsp;</div>
+				<div class="columns large-2">
+					<img src="images/adslot.png" alt="Adslot" />
+				</div>
+				<div class="columns large-3">&nbsp;</div>
+				<div class="columns large-5 icons" ng-class="{ 'hide': showSearch }">
+					<ul class="inline-list">
+						<li class="cart"></li>
+						<li class="currency"></li>
+						<li class="account"></li>
+						<li class="search" ng-click="showSearch = true"></li>
+					</ul>
+				</div>
+				<div class="columns large-5 icons" ng-class="{ 'hide': !showSearch }">
+					<ul class="inline-list right">
+						<li class="close" ng-click="showSearch = false">X</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<div id="main" class="main" ng-class="{ 'search-active': showSearch }">
+			<div class="row">
+				<div class="columns large-2">&nbsp;</div>
+				<div class="columns large-8">
+					<div id="search" ng-class="{ 'hide': !showSearch }">
+						<div class="row collapse">
+							<div class="small-10 columns">
+							 	<input ng-model="searchTerm" type="text" placeholder="Search...">
+							</div>
+							<div class="small-2 columns">
+							 	<a href="#" class="button postfix" ng-click="search(searchTerm)">Go</a>
+							</div>
+					  	</div>
+						<section class="row results" ng-if="sites">
+							<div class="columns large-12">
+								<div ng-hide="results.length">
+									We currently don't have any results for your search, try another.
+								</div>
+								<article class="" ng-repeat="site in results" ng-cloak>
+									<h4><a href="{{site.siteUrl}}">{{site.siteName}}</a></h4>
+									<p>{{site.description}}</p>
+								</article>
+							</div>
+						</section>
+					</div>
+				</div>
+				<div class="columns large-2">&nbsp;</div>
+			</div>
+		</div>
+
+
+
+		</div>
+
+		<footer>
+			<div class="row">
+				<div class="columns large-5">&nbsp;</div>
+				<div class="columns large-2 text-center">
+					<img src="images/adslot-footer.png" alt="">
+				</div>
+				<div class="columns large-5">&nbsp;</div>
+			</div>
+			<div class="row">
+				<div class="columns large-2">&nbsp;</div>
+				<div class="columns large-8"><hr></div>
+				<div class="columns large-2">&nbsp;</div>
+			</div>
+			<div class="row">
+				<div class="columns large-12 text-center">
+					<ul class="inline-list links">
+						<li><small><a href="#">&copy;2012 Adslot</a></small></li>
+						<li><small><a href="#">Adslot Publisher</a></small></li>
+						<li><small><a href="#">Adslot Create</a></small></li>
+						<li><small><a href="#">Terms</a></small></li>
+						<li><small><a href="#">Privacy Policy</a></small></li>
+						<li><small><a href="#">Payment Policy</a></small></li>
+					</ul>
+				</div>
+			</div>
+
+		</footer>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.4/angular.min.js"></script>
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.3.3/js/foundation/foundation.js"></script>
+
+		<script src="js/controllers.js"></script>
+
+
+		<script>
+			$(document).foundation();
+
+		</script>
+	</body>
+
+
+</html>
