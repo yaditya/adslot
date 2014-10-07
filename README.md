@@ -1,5 +1,11 @@
 #Frontend Exercise Adslot
 
+This simple exercise is using below front end technologies:
+
+1. Zurb Foundation 5
+2. Angular JS
+3. CSS
+
 
 
 ## Prerequisites
