@@ -25,22 +25,20 @@
 	<body ng-controller="SearchSiteCtrl">
 		<header>
 			<div class="row">
-				<div class="columns large-2">&nbsp;</div>
-				<div class="columns large-2">
+				<div class="columns small-4 push-2">
 					<img src="images/adslot.png" alt="Adslot" />
 				</div>
-				<div class="columns large-3">&nbsp;</div>
-				<div class="columns large-5 icons" ng-class="{ 'hide': showSearch }">
-					<ul class="inline-list">
+				<div class="columns small-8 pull-1 icons" ng-class="{ 'hide': showSearch }">
+					<ul class="inline-list right">
 						<li class="cart"></li>
 						<li class="currency"></li>
 						<li class="account"></li>
 						<li class="search" ng-click="showSearch = true"></li>
 					</ul>
 				</div>
-				<div class="columns large-5 icons" ng-class="{ 'hide': !showSearch }">
+				<div class="columns small-8 pull-1 icons" ng-class="{ 'hide': !showSearch }">
 					<ul class="inline-list right">
-						<li class="close" ng-click="showSearch = false">X</li>
+						<li ng-click="showSearch = false"><img src="images/close.png" alt="close" /></li>
 					</ul>
 				</div>
 			</div>
@@ -48,20 +46,26 @@
 
 		<div id="main" class="main" ng-class="{ 'search-active': showSearch }">
 			<div class="row">
-				<div class="columns large-2">&nbsp;</div>
-				<div class="columns large-8">
+				<div class="columns large-9 medium-9 small-12 push-2">
 					<div id="search" ng-class="{ 'hide': !showSearch }">
-						<div class="row collapse">
-							<div class="small-10 columns">
-							 	<input ng-model="searchTerm" type="text" placeholder="Search...">
-							</div>
-							<div class="small-2 columns">
-							 	<a href="#" class="button postfix" ng-click="search(searchTerm)">Go</a>
-							</div>
-					  	</div>
+
+							<div class="row collapse">
+								<div class="small-11 columns">
+									<form ng-submit="search()">
+								 	<input ng-model="searchTerm" type="text" placeholder="Search..." tabindex="1" />
+								 	<!-- Hidden submit button for ng-submit to work by pressing Enter -->
+								 	<input type="submit" class="hidden" />
+								 	</form>
+								</div>
+								<div class="small-1 columns">
+									<!-- Keep the click event in case user clicks the search glass -->
+								 	<span class="postfix" ng-click="search(searchTerm)"><img src="images/glass.png" alt="search" tabindex="2" /></span>
+								</div>
+						  	</div>
+
 						<section class="row results">
-							<div class="columns large-12">
-								<div ng-show="noResult">
+							<div class="columns small-12">
+								<div class="no-result" ng-show="noResult">
 									We currently don't have any results for your search, try another.
 								</div>
 								<article class="" ng-repeat="site in results" ng-cloak>
@@ -72,25 +76,24 @@
 						</section>
 					</div>
 				</div>
-				<div class="columns large-2">&nbsp;</div>
 			</div>
 		</div>
 
 		<footer>
 			<div class="row">
-				<div class="columns large-5">&nbsp;</div>
-				<div class="columns large-2 text-center">
+				<div class="columns small-5">&nbsp;</div>
+				<div class="columns small-2 text-center">
 					<img src="images/adslot-footer.png" alt="">
 				</div>
-				<div class="columns large-5">&nbsp;</div>
+				<div class="columns small-5">&nbsp;</div>
 			</div>
 			<div class="row">
-				<div class="columns large-2">&nbsp;</div>
-				<div class="columns large-8"><hr></div>
-				<div class="columns large-2">&nbsp;</div>
+				<div class="columns small-2">&nbsp;</div>
+				<div class="columns small-8"><hr></div>
+				<div class="columns small-2">&nbsp;</div>
 			</div>
 			<div class="row">
-				<div class="columns large-12 text-center">
+				<div class="columns small-12 text-center">
 					<ul class="inline-list links">
 						<li><small><a href="#">&copy;2012 Adslot</a></small></li>
 						<li><small><a href="#">Adslot Publisher</a></small></li>

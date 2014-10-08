@@ -3,14 +3,18 @@
 var searchApp = angular.module('searchApp', []);
 
 searchApp.controller('SearchSiteCtrl', function($scope, $http, $filter) {
+	// Initial values
+	$scope.noResult = false;
+	$scope.newCategories = [];
+
+	// Get categories data
 	$http.get('data/category.json').success(function(categories) {
 		$scope.categories = categories;
 	});
 
 	$http.get('data/site.json').success(function(sites) {
 		$scope.sites = sites;
-		$scope.noResult = false;
-		$scope.newCategories = [];
+
 
 		angular.forEach(sites, function(site, index) {
 			var catIdArray = site.categoryIds;
@@ -25,6 +29,9 @@ searchApp.controller('SearchSiteCtrl', function($scope, $http, $filter) {
 
 	$scope.search = function (keywords) {
 		var sites = $scope.sites;
+		// if Enter is pressed, get $scope.searchTerm
+		// otherwise, get the keywords sent by click event
+		var keywords = (typeof keywords !== 'undefined') ? keywords : $scope.searchTerm;
 		$scope.results = $filter('filter')(sites, keywords);
 		$scope.noResult = ($scope.results.length) ? false : true;
 	}
