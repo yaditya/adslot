@@ -21,7 +21,9 @@ Install npm
 
 #### http-server
 
-Install npm package: http-server
+We need to run a local web server for the ajax call in order to load the json data.
+
+Install npm http-server by running:
 
 `npm install http-server -g`
 
@@ -31,10 +33,13 @@ Note: in Mac, you can use `python -m SimpleHTTPServer`, save your time downloadi
 
 ## Run the app
 
-###Unzip the exercise package
-Assuming the destination location is:
+###Get the package
 
-C:/adslot
+Download the ZIP file or clone the repo.
+
+For this step onwards, let's assume the destination location is:
+
+*C:/adslot*
 
 ###Run local web server
 
@@ -55,7 +60,7 @@ Open web browser and type:
 
 `http://localhost:8082`
 
-Note: use the port number you see when running http-server.
+Note: use the port number you see when running http-server or python.
 
 [node-download]: http://nodejs.org/download/
 [http-server-download]: https://www.npmjs.org/package/http-server
